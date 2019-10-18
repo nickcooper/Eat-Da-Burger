@@ -11,15 +11,15 @@ var orm = {
           cb(result);
         });
     },
-    insertOne: function(burger, cb) {
-        connection.query("INSERT INTO burgers SET ?", ["burger_name", burger], function(err, result) {
+    insertOne: function(burgerObj, cb) {
+        connection.query("INSERT INTO burgers SET ?", [burgerObj], function(err, result) {
             if (err) {
               throw err;
             }
             cb(result);
           });
     },
-    updateOne: function(burgerObj, id,  cb) {
+    updateOne: function(burgerObj, id, cb) {
         connection.query("UPDATE burgers SET ? WHERE id = ?", [burgerObj, id], function(err, result) {
             if (err) {
               throw err;
